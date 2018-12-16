@@ -1,20 +1,23 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import {  Route, Switch, Router } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router'
 import DashboardPage from '../components/DashboardPage';
 import NotFoundPage from '../components/NotFoundPage';
-import LoginPage from '../components/LoginPage';
-import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import TransactionsRoute from './TransactionsRoute';
+import TransactionEdit from '../components/transactions/TransactionEdit';
+import TransactionAdd from '../components/transactions/TransactionAdd';
 
-export const history = createHistory();
+import {history} from '../store/history';
 
 const AppRouter = () => (
   <Router history={history}>
     <div>
       <Switch>
         <PublicRoute path="/" component={DashboardPage} exact={true} isAuthenticated={true} />
-        <PrivateRoute path="/dashboard" component={DashboardPage} isAuthenticated={true} />
+        <PublicRoute path="/transactions" component={DashboardPage} exact={true} isAuthenticated={true} />
+        <PublicRoute  path={`/transactions/create`} component={TransactionAdd}  />
+        <PublicRoute  path='/transactions/edit/:id' component={TransactionEdit}   />) } />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

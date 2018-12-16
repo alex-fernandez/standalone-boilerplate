@@ -1,0 +1,32 @@
+ <div className="field">
+                    <label>Payor Information</label>
+                    <div className="fields">
+                    <div className={!this.state.payor ? ' field error' : 'field'}>
+                        <Select className="select-input" options={this.state.payors} 
+                            onChange={this.onPayorChange}
+                        />
+                    </div>
+                    </div>
+                </div>
+                <div className="field">
+                    <label>Tags</label>
+                    <div className="fields">
+                    <div className="field">
+                        <Select className="select-input" options={this.state.tags} 
+                                onChange={this.onTagChange} 
+                                isMulti={true}
+                        />
+                    </div>
+                    </div>
+                </div>
+                <div className="field">
+                    <label>Classification</label>
+                    <div className="fields">
+                    <div className="field">
+                        <Select className="select-input" options={this.state.classifications} 
+                            onChange={this.onClassificationChange}
+                            isMulti={true}
+                            />
+                    </div>
+                    </div>
+                </div>

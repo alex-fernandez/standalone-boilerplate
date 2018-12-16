@@ -1,16 +1,29 @@
 .text-input {
   border: 1px solid #cacccd;
-  height: 50px;
-  font-size: $font-size-large;
+  height: 40px;
+  font-size: $font-size-small;
   font-weight: 300;
   padding: $s-size;
+  width: 100%;
 }
 
 .select {
   @extend .text-input;
 }
 
+.select-input div {
+  border-radius: 0;
+}
+
 .textarea {
   @extend .text-input;
   height: 10rem;
+}
+
+
+.field {
+  label {
+    font-weight: bold;
+    color: #666;
+  }
 }
